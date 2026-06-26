@@ -5,6 +5,13 @@
 
 ---
 
+## Required product behaviour (dual mode)
+
+The feature must support **both**, switchable on the same screen:
+- **1 point (old way, default):** destination only → `coordinate|lon|lat|drive`. Already working — must NOT regress.
+- **Multi-point (on demand):** dispatcher dynamically adds **pre-stop points** (variable count of coord inputs / map pins). With ≥1 pre-stop, dispatch uses the itinerary mechanism below so Sygic computes through origin → pre-stops → destination.
+- Mode auto-selected by pre-stop count (0 → single; ≥1 → itinerary). Same coords also feed toll estimation on the other maps.
+
 ## TL;DR — the one mechanism that works for "few points, Sygic computes the roads"
 
 **`route_download` + a hosted Sygic *itinerary* file with `precomputed:false`.**

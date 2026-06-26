@@ -19,6 +19,20 @@ Add **shaping / via points ("pre-stop points")** to the TMS so a dispatcher can 
 1. **Route Planner** (`http://localhost:3200/route-planner`) — let the dispatcher add/drag shaping points on the map between stops, see the route + approximate toll (via the existing HERE/HOGS / Google map providers), then dispatch to Sygic.
 2. **Order stops** — add an optional list of shaping/via points to an order (distinct from real stops; they are pass-through, not delivery/pickup points).
 
+## Expected behaviour (THE CORE — most important)
+
+The dispatcher must be able to use it **both ways, switching freely on the same screen**:
+
+1. **Single point — the OLD way (default).** Just a destination → driver gets `com.sygic.aura://coordinate|lon|lat|drive`. **No pre-stops. This is the current working behaviour and MUST be preserved exactly — do not regress it.**
+2. **Multi-point — when I want it.** The dispatcher **dynamically adds pre-stop points**: a variable number of coordinate inputs (add/remove rows AND/OR drag pins / search / click on the map). These shape the corridor (origin → pre-stop 1 → … → pre-stop N → destination). When **≥1 pre-stop exists**, dispatch automatically switches to the itinerary mechanism (`route_download | <url> | sif`, `precomputed:false`) so **Sygic computes the truck route through all the points**.
+
+Rules for pre-stops:
+- **Optional and dynamic** — add/remove/reorder at any time; 0..N of them.
+- Entered as **coords** (manual lat/lng input), and ideally also via map click / address search / drag.
+- **Pass-through**, not delivery/pickup stops (no status, no time window).
+- **Mode is chosen automatically by count**: 0 pre-stops → single-destination (old way); ≥1 → itinerary multi-point. (An explicit override toggle is fine, but auto-by-count is the expectation.)
+- The **same** pre-stop coords feed the toll/cost estimation on the other maps (HERE/HOGS, Google/SWRgo) — one source of truth.
+
 ## Requirements
 
 1. **Data model**: add shaping/via points to the order/route-plan model. They are ordered, sit between real stops, and are NOT stops (no status, no time window). Keep immutable update patterns and the project's `type`-over-`interface` convention.
