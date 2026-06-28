@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Logifie" xmlns="http://www.topografix.com/GPX/1/1">
+  <rte>
+    <name>Warsaw to Dortmund (5 pts)</name>
+    <rtept lat="52.2297" lon="21.0122"><name>Warsaw</name></rtept>
+    <rtept lat="52.4064" lon="16.9252"><name>Poznan</name></rtept>
+    <rtept lat="52.3105" lon="14.6376"><name>Swiecko</name></rtept>
+    <rtept lat="52.3759" lon="9.7320"><name>Hannover</name></rtept>
+    <rtept lat="51.5136" lon="7.4653"><name>Dortmund</name></rtept>
+  </rte>
+</gpx>

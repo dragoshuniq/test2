@@ -1,7 +1,6 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sygic universal links</title><style>body{font-family:system-ui,sans-serif;max-width:640px;margin:24px auto;padding:0 16px;line-height:1.5}a.btn{display:block;margin:14px 0;padding:16px;background:#0a7;color:#fff;text-decoration:none;border-radius:10px;font-size:16px;text-align:center}h2{font-size:20px}.note{color:#555;font-size:14px}</style></head><body>
-<h2>Sygic universal links (official replacement)</h2>
-<p class="note">0 = the working legacy single. Tap C: does go.sygic.com open Sygic to Dortmund? Tap D: does it open Sygic with 3 via points?</p>
-<a class="btn" href="intent://coordinate%7C7.4653%7C51.5136%7Cdrive#Intent;scheme=com.sygic.aura;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.sygic.aura;end">0. coordinate single (WORKS)</a>
-<a class="btn" href="https://go.sygic.com/directions?to=51.5136,7.4653">C. universal link — SINGLE dest (go.sygic.com)</a>
-<a class="btn" href="https://go.sygic.com/directions?from=52.2297,21.0122&to=51.5136,7.4653&via%5B%5D=52.4064,16.9252&via%5B%5D=52.3105,14.6376&via%5B%5D=52.3759,9.7320">D. universal link — MULTI via[] (go.sygic.com)</a>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sygic GPX test</title><style>body{font-family:system-ui,sans-serif;max-width:640px;margin:24px auto;padding:0 16px;line-height:1.5}a.btn{display:block;margin:14px 0;padding:16px;background:#0a7;color:#fff;text-decoration:none;border-radius:10px;font-size:16px;text-align:center}h2{font-size:20px}.note{color:#555;font-size:14px}</style></head><body>
+<h2>GPX import test (Truck &amp; Caravan supported method)</h2>
+<p class="note">1) Tap GPX to download. 2) Open the downloaded file (Files/Downloads) and choose "Open with Sygic". Does it import a 5-point route?</p>
+<a class="btn" href="https://raw.githubusercontent.com/dragoshuniq/test2/main/warsaw-dortmund-5.gpx" download>Download warsaw-dortmund-5.gpx (5 points)</a>
+<a class="btn" href="intent://coordinate%7C7.4653%7C51.5136%7Cdrive#Intent;scheme=com.sygic.aura;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.sygic.aura;end">coordinate single (works) — baseline</a>
 </body></html>
